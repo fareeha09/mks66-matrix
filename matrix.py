@@ -12,13 +12,28 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    pass
+    numrows= len(matrix[0])
+    numcols= len(matrix)
+    matrixx=""
+    i = 0
+    while (i < numrows):
+        for j in range(numcols):
+            matrixx += str(matrix[j][i]) + " "
+        matrixx += "\n"
+        i+=1
+    print(matrixx)
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    for i in range(len(matrix))
-        if
+    numrows= len(matrix[0])
+    numcols= len(matrix)
+    for i in range(numrows):
+        for j in range(numrows):
+            if (i==j):
+                matrix[i][j]=1
+            else:
+                matrix[i][j]=0
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
