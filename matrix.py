@@ -38,9 +38,27 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
-
-
+	print_matrix(m1)
+	print_matrix(m2)
+	numrows_m1= len(m1[0]) #4
+	numcols_m1= len(m1) #4
+	numrows_m2= len(m2[0]) #4
+	numcols_m2= len(m2) #N
+	
+	if ((numcols_m1) != (numrows_m2)):
+		print("Undefined")
+		return 
+		
+	temp = m2[:]
+	num = 0 
+	while (num< numrows_m1):
+		for i in range(numcols_m2): #N
+			ans = 0
+			for n in range(numcols_m1): #4
+				ans += temp[i][n] * m1[n][num]
+			m2[i][num] = ans
+		num = num+ 1
+	print_matrix(m2)
 
 
 def new_matrix(rows = 4, cols = 4):
@@ -50,3 +68,16 @@ def new_matrix(rows = 4, cols = 4):
         for r in range( rows ):
             m[c].append( 0 )
     return m
+
+A = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]
+B = [[11,12,13,14],[15,16,17,18],[19,20,21,22],[23,24,25,26]]
+matrix_mult(A,B)
+print_matrix(A)
+print_matrix(B)
+matrix_mult(B,A)  
+print_matrix(A)
+print_matrix(B)
+ident(B)
+matrix_mult(B,A)
+print_matrix(A)
+
